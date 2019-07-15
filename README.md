@@ -9,7 +9,8 @@
 * Vous n’aurez peut-être pas le temps de finir donc à vous de définir vos priorités et de nous fournir un projet qui vous parait **cohérent avec le temps passé**
 
 ## Objectifs
-* Réaliser un jeu de **Tetris** avec :
+Réaliser un jeu de **Tetris** avec :
+
 * La possibilité de **configurer** et **ajouter** ou **supprimer** les pièces du jeu dans l’éditeur (couleur, forme, …)
 * Un **menu localisé** permettant de :
 	* choisir la langue (français ou anglais)
