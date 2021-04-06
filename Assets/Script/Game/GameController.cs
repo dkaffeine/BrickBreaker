@@ -45,6 +45,7 @@ public class GameController : MonoBehaviour
         {
             // Last time button was pressed is the current time
             lastKeyDown = Time.time;
+            lastPressedTime = Time.time;
         }
         if (isPressed && Time.time >= lastPressedTime + deltaTime)
         {

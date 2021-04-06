@@ -631,6 +631,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasToResetData: 0
   backgroundMusic: {fileID: 1051994224}
+  hasSoundEffects: 0
+  soundEffects: []
   captions: {fileID: 750756931}
 --- !u!114 &750756931
 MonoBehaviour:

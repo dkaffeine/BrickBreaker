@@ -17,6 +17,6 @@ public class DataToSave
 
     // Hiscores
     public bool hiscoresGenerated = false;
-    public Dictionary<uint, string> hiscores = new Dictionary<uint, string>();
+    public List<KeyValuePair<uint, string>> hiscores = new List<KeyValuePair<uint, string>>();
 
 }

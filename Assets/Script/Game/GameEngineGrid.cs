@@ -123,8 +123,8 @@ public class GameEngineGrid : MonoBehaviour
                 break;
         }
 
-        // Update level
-        ScoreAndLevelManager.level = ScoreAndLevelManager.linesDestroyed / 10;
+        // Update level: starting at level 1, gain 1 level for every 10 lines destroyed
+        ScoreAndLevelManager.level = 1 + ScoreAndLevelManager.linesDestroyed / 10;
     }
 
 }

@@ -59,16 +59,16 @@ public class DataManagement : MonoBehaviour
         }
         // Generate hiscores
         data.hiscoresGenerated = true;
-        data.hiscores.Add(100u, "10th place");
-        data.hiscores.Add(200u, "9th place");
-        data.hiscores.Add(300u, "8th place");
-        data.hiscores.Add(400u, "7th place");
-        data.hiscores.Add(500u, "6th place");
-        data.hiscores.Add(600u, "5th place");
-        data.hiscores.Add(700u, "4th place");
-        data.hiscores.Add(800u, "3rd place");
-        data.hiscores.Add(900u, "2nd place");
-        data.hiscores.Add(1000u, "1st place");
+        data.hiscores.Add(new KeyValuePair<uint, string>(100u, "10th place"));
+        data.hiscores.Add(new KeyValuePair<uint, string>(200u, "9th place"));
+        data.hiscores.Add(new KeyValuePair<uint, string>(300u, "8th place"));
+        data.hiscores.Add(new KeyValuePair<uint, string>(400u, "7th place"));
+        data.hiscores.Add(new KeyValuePair<uint, string>(500u, "6th place"));
+        data.hiscores.Add(new KeyValuePair<uint, string>(600u, "5th place"));
+        data.hiscores.Add(new KeyValuePair<uint, string>(700u, "4th place"));
+        data.hiscores.Add(new KeyValuePair<uint, string>(800u, "3rd place"));
+        data.hiscores.Add(new KeyValuePair<uint, string>(900u, "2nd place"));
+        data.hiscores.Add(new KeyValuePair<uint, string>(1000u, "1st place"));
     }
 
     // Regenerate highscores
@@ -85,10 +85,13 @@ public class DataManagement : MonoBehaviour
     public static void AddHiscore(uint score)
     {
         // We add an hiscore to the list
-        data.hiscores.Add(score, data.userName);
+        data.hiscores.Add(new KeyValuePair<uint, string>(score, data.userName));
+
+        // Sort list
+        data.hiscores.Sort((x, y) => x.Key.CompareTo(y.Key));
 
         // We keep the top 10 then, since there are 11 values, the first one is the lowest score
-        data.hiscores.Remove(data.hiscores.Keys.First());
+        data.hiscores.RemoveAt(0);
     }
 
     public void PlayBackgroundMusic()

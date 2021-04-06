@@ -6,16 +6,36 @@ public class Piece : MonoBehaviour
     // Time since last fall iteration
     private float lastFallTime;
 
+    // Delta time for falling at level 1
+    private float fallTimeStartingLevel = 1.5f;
+
     // Reference to game controller
     private GameController gameController;
+
+    // Reference to the spawner
+    private Spawner spawner;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Ger terefences
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        spawner = GameObject.Find("Spawner").GetComponent<Spawner>();
 
         // Set the last fall time on the grid
         lastFallTime = Time.time;
+
+        // Check if the starting position is a valid position
+        if (IsValidGridPosition())
+        {
+            InsertChildrenInGrid();
+        }
+        else
+        {
+            // If you cannot place the piece on start, this is the game over
+            GameOver();
+        }
+
     }
 
     // Check if the position of the piece fits to a valid grid position
@@ -44,6 +64,18 @@ public class Piece : MonoBehaviour
         return true;
     }
 
+    // Initial insert 
+    void InsertChildrenInGrid()
+    {
+
+        // Set each child inside the grid
+        foreach (Transform child in transform)
+        {
+            Vector2 childPosition = GameEngineGrid.ClosestGridPosition(child.position);
+            GameEngineGrid.grid[(int)childPosition.x, (int)childPosition.y] = child;
+        }
+    }
+
     // Update the grid
     void UpdateGrid()
     {
@@ -59,12 +91,7 @@ public class Piece : MonoBehaviour
             }
         }
 
-        // Set each child inside the grid
-        foreach(Transform child in transform)
-        {
-            Vector2 childPosition = GameEngineGrid.ClosestGridPosition(child.position);
-            GameEngineGrid.grid[(int)childPosition.x, (int)childPosition.y] = child;
-        }
+        InsertChildrenInGrid();
     }
 
     // Try changing position
@@ -119,13 +146,37 @@ public class Piece : MonoBehaviour
     // Make that piece falling
     void PieceFalling()
     {
+        transform.position += new Vector3(0, -1, 0);
+
+        // Check if the movement is a valid one
+        if (IsValidGridPosition())
+        {
+            // If it's a valid grid position, update it
+            UpdateGrid();
+        }
+        else
+        {
+            // Revert displacement
+            transform.position += new Vector3(0, 1, 0);
+
+            // Trigger grid line deletion (if any) and score
+            GameEngineGrid.CheckGridAndScore();
+
+            // Spawn the next piece
+            spawner.SpawnNextPiece();
+
+            // Deactivate this piece
+            enabled = false;
+        }
+
+
     }
 
     // Game over
     void GameOver()
     {
         enabled = false;
-        GameObject.Find("GameOverPanel").SetActive(true);
+        spawner.gameOver.SetActive(true);
         DataManagement.AddHiscore(ScoreAndLevelManager.score);
         FileManagement.SaveData(DataManagement.data);
     }
@@ -156,13 +207,19 @@ public class Piece : MonoBehaviour
         if (gameController.GetHPressed())
         {
             // Rotate counter-clockwise when H is pressed
-            TryRotatePiece(new Vector3(0, 0, -90));
+            TryRotatePiece(new Vector3(0, 0, 90));
         }
 
         if (gameController.GetJPressed())
         {
             // Rotate counter-clockwise when J is pressed
-            TryRotatePiece(new Vector3(0, 0, 90));
+            TryRotatePiece(new Vector3(0, 0, -90));
+        }
+
+        if (gameController.GetDownPressed() || Time.time - lastFallTime >= fallTimeStartingLevel / Mathf.Sqrt(ScoreAndLevelManager.level))
+        {
+            PieceFalling();
+            lastFallTime = Time.time;
         }
     }
 

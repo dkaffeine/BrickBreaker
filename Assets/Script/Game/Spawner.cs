@@ -5,7 +5,11 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
 
+    // List of pieces
     public GameObject[] pieces;
+
+    // Reference to the game over script
+    public GameObject gameOver;
 
     // Next piece Id
     public int nextId;
@@ -24,7 +28,7 @@ public class Spawner : MonoBehaviour
         CreatePiece(transform.position);
 
         // Defines next Id
-        nextId = Random.Range(0, pieces .Length);
+        nextId = Random.Range(0, pieces.Length);
     }
 
     // Create a piece
