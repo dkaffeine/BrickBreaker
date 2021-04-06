@@ -19,11 +19,6 @@ public class HiscoresMenu : MonoBehaviour
         
     }
 
-    void UpdateCaptionsWithLanguage()
-    {
-
-    }
-
     public void ResetScores()
     {
         DataManagement.RegenerateHiscores();
