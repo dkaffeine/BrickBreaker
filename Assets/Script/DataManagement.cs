@@ -13,9 +13,13 @@ public class DataManagement : MonoBehaviour
     // Background music
     public AudioSource backgroundMusic;
 
+    // Sound effects
+    public bool hasSoundEffects;
+    public AudioSource[] soundEffects;
+
     // Captions
     public Captions captions;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -98,5 +102,14 @@ public class DataManagement : MonoBehaviour
     {
         // On update: set the background volume to the music volume
         backgroundMusic.volume = data.musicVolume;
+
+        // On update: set the sound effects to the effects volume
+        if (hasSoundEffects == true)
+        { 
+            foreach(AudioSource se in soundEffects)
+            {
+                se.volume = data.soundVolume;
+            }
+        }
     }
 }

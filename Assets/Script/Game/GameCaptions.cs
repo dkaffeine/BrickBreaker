@@ -24,6 +24,8 @@ public class GameCaptions : Captions
                 captions[4].text = "Game Over";
                 captions[5].text = "Restart";
                 captions[6].text = "Main Menu";
+                captions[7].text = "Score";
+                captions[8].text = "Level";
                 break;
             case 1:
                 // French
@@ -34,6 +36,8 @@ public class GameCaptions : Captions
                 captions[4].text = "Fin de partie";
                 captions[5].text = "Redémarrage";
                 captions[6].text = "Menu principal";
+                captions[7].text = "Score";
+                captions[8].text = "Niveau";
                 break;
         }
 
