@@ -2248,6 +2248,8 @@ MonoBehaviour:
   - {fileID: 413673944}
   - {fileID: 842668209}
   - {fileID: 282468209}
+  closeButtonCaption: {fileID: 1676675059}
+  resetButtonCaption: {fileID: 1632856043}
 --- !u!114 &1156166251
 MonoBehaviour:
   m_ObjectHideFlags: 0

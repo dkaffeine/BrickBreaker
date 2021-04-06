@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HiscoresMenu : MonoBehaviour
@@ -11,6 +9,7 @@ public class HiscoresMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        hiscoresCaption.ChangeCaptions();
         hiscoresCaption.DisplayHiscores();
     }
 
@@ -18,6 +17,11 @@ public class HiscoresMenu : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void UpdateCaptionsWithLanguage()
+    {
+
     }
 
     public void ResetScores()
