@@ -55,16 +55,16 @@ public class DataManagement : MonoBehaviour
         }
         // Generate hiscores
         data.hiscoresGenerated = true;
-        data.hiscores.Add(10000u, "10th place");
-        data.hiscores.Add(20000u, "9th place");
-        data.hiscores.Add(30000u, "8th place");
-        data.hiscores.Add(40000u, "7th place");
-        data.hiscores.Add(50000u, "6th place");
-        data.hiscores.Add(60000u, "5th place");
-        data.hiscores.Add(70000u, "4th place");
-        data.hiscores.Add(80000u, "3rd place");
-        data.hiscores.Add(90000u, "2nd place");
-        data.hiscores.Add(100000u, "1st place");
+        data.hiscores.Add(100u, "10th place");
+        data.hiscores.Add(200u, "9th place");
+        data.hiscores.Add(300u, "8th place");
+        data.hiscores.Add(400u, "7th place");
+        data.hiscores.Add(500u, "6th place");
+        data.hiscores.Add(600u, "5th place");
+        data.hiscores.Add(700u, "4th place");
+        data.hiscores.Add(800u, "3rd place");
+        data.hiscores.Add(900u, "2nd place");
+        data.hiscores.Add(1000u, "1st place");
     }
 
     // Regenerate highscores
