@@ -102,22 +102,22 @@ public class GameEngineGrid : MonoBehaviour
             case 0:
                 break;
             case 1:
-                ScoreAndLevelManager.score += ScoreAndLevelManager.level * 100;
+                ScoreAndLevelManager.score += (uint)ScoreAndLevelManager.level * 100;
                 audioSource = GameObject.Find("UI").GetComponent<DataManagement>().soundEffects[0];
                 audioSource.Play();
                 break;
             case 2:
-                ScoreAndLevelManager.score += ScoreAndLevelManager.level * 300;
+                ScoreAndLevelManager.score += (uint)ScoreAndLevelManager.level * 300;
                 audioSource = GameObject.Find("UI").GetComponent<DataManagement>().soundEffects[1];
                 audioSource.Play();
                 break;
             case 3:
-                ScoreAndLevelManager.score += ScoreAndLevelManager.level * 600;
+                ScoreAndLevelManager.score += (uint)ScoreAndLevelManager.level * 600;
                 audioSource = GameObject.Find("UI").GetComponent<DataManagement>().soundEffects[2];
                 audioSource.Play();
                 break;
             case 4:
-                ScoreAndLevelManager.score += ScoreAndLevelManager.level * 1000;
+                ScoreAndLevelManager.score += (uint)ScoreAndLevelManager.level * 1000;
                 audioSource = GameObject.Find("UI").GetComponent<DataManagement>().soundEffects[3];
                 audioSource.Play();
                 break;

@@ -20,7 +20,6 @@ public class NextSpawner : MonoBehaviour
         currentPieceId = spawner.nextId;
 
         Piece piece = (Piece)currentPieceObject.GetComponent(typeof(Piece));
-        piece.AlignCenter();
         piece.enabled = false;
     }
 
