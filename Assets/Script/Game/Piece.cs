@@ -1,5 +1,11 @@
 using UnityEngine;
 
+/// <summary>
+/// Script attached to the spawned piece and handles the game engine part for the piece
+/// 
+/// Note that once the piece reached the ground, script is disabled, so that only one piece is moving at a time
+/// </summary>
+
 public class Piece : MonoBehaviour
 {
 
@@ -21,7 +27,7 @@ public class Piece : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Ger terefences
+        // Get references from different objets in scene
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
         dataManagement = GameObject.Find("UI").GetComponent<DataManagement>();
         spawner = GameObject.Find("Spawner").GetComponent<Spawner>();
@@ -30,8 +36,15 @@ public class Piece : MonoBehaviour
         lastFallTime = Time.time;
 
         // Check if the starting position is a valid position
+        CheckInitialGridPosition();
+    }
+
+    // Check if initial position is valid
+    void CheckInitialGridPosition()
+    {
         if (IsValidGridPosition())
         {
+            // If the position is valid, we insert it inside the grid
             InsertChildrenInGrid();
         }
         else

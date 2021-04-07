@@ -1,11 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+/// <summary>
+/// Pause panel script - the same panel is used for the Game Over
+/// </summary>
 
 public class PausePanel : MonoBehaviour
 {
 
+    // Handlers to game controller and data management
     public GameController gameController;
     public DataManagement dataManagement;
     
@@ -15,12 +18,7 @@ public class PausePanel : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // Go back to main menu
     public void MainMenuClicked()
     {
         // Stop playing current background music
@@ -32,20 +30,22 @@ public class PausePanel : MonoBehaviour
 
     }
 
+    // Reloads the scene
     public void RestartClicked()
     {
         dataManagement.backgroundMusic.Stop();
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
 
+    // Opens the options (used only in the pause menu)
     public void OptionsClicked()
     {
         const string sceneName = "Options";
         ExtraScene.Load(sceneName);
     }
 
+    // Close this menu (used only in the pause menu)
     public void CloseClicked()
     {
         gameController.TogglePause();

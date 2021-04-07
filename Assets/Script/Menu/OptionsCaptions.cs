@@ -1,7 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+/// <summary>
+/// Script handler for options captions
+/// </summary>
 
 public class OptionsCaptions : MonoBehaviour
 {
@@ -12,13 +14,14 @@ public class OptionsCaptions : MonoBehaviour
     public Text languageCaption;
     public Text closeButtonCaption;
 
-    // Start is called before the first frame update
+    // On start: update captions
     void Start()
     {
         UpdateCaptions();
     }
 
-   public void UpdateCaptions()
+    // Update captions
+    public void UpdateCaptions()
     {
         switch(DataManagement.data.languageIndex)
         {
@@ -39,12 +42,5 @@ public class OptionsCaptions : MonoBehaviour
                 closeButtonCaption.text = "Fermer";
                 break;
         }
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

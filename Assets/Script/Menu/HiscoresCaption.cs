@@ -1,7 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+/// <summary>
+/// Script handler for hiscores captions
+/// </summary>
 
 public class HiscoresCaption : MonoBehaviour
 {
@@ -10,12 +13,6 @@ public class HiscoresCaption : MonoBehaviour
     public Text[] nameCaptions;
     public Text closeButtonCaption;
     public Text resetButtonCaption;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Modify captions
     public void ChangeCaptions()

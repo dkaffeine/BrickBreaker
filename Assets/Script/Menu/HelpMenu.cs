@@ -9,12 +9,13 @@ public class HelpMenu : MonoBehaviour
 
     public HelpCaptions helpCaptions;
 
-    // Start is called before the first frame update
+    // On start: update captions
     void Start()
     {
         helpCaptions.ChangeCaptions();
     }
 
+    // Close this menu
     public void CloseMenu()
     {
         ExtraScene.Unload(SceneName);

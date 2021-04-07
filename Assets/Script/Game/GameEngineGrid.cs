@@ -76,6 +76,7 @@ public class GameEngineGrid : MonoBehaviour
         return true;
     }
 
+    // Check grid and score if at least one line has been destroyed
     public static void CheckGridAndScore()
     {
         int linesDestroyed = 0;

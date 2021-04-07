@@ -2,6 +2,10 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Handler for score, level and lines destroyed tracking
+/// </summary>
+
 public class ScoreAndLevelManager : MonoBehaviour
 {
 
@@ -13,7 +17,7 @@ public class ScoreAndLevelManager : MonoBehaviour
     public Text levelText;
     public Text linesDestroyedText;
 
-    // Start is called before the first frame update
+    // On start: we refresh the game
     void Start()
     {
         score = 0;
@@ -21,8 +25,13 @@ public class ScoreAndLevelManager : MonoBehaviour
         linesDestroyed = 0;
     }
 
-    // Update is called once per frame
     void Update()
+    {
+        UpdateScoreLevelAndLines();
+    }
+
+    // Update of score, level and lines
+    void UpdateScoreLevelAndLines()
     {
         scoreText.text = String.Format("{0:D8}", score);
         levelText.text = level.ToString();

@@ -25,6 +25,7 @@ Réaliser un jeu de **Tetris** avec :
 	* affiché lors d’une partie
 	* enregistré dans le Leaderboard a la fin de chaque partie
 * => Le leaderboard est généré lors de la première exécution, et il est possible de le remettre à zéro dans l'application.
+* => Pour le build sous Android, dans la scène **Main** l'objet **AdroidHUD** doit être activé, et dans le script **HelpCaption.cs**, la variable **helpForAndroid** doit être sur **true**.
 
 ## Règles du jeu
 Les règles du jeu sont celles du **Tetris original** : https://fr.wikipedia.org/wiki/Tetris#Syst%C3%A8me_du_jeu

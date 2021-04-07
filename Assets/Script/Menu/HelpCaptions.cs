@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Script handler for help captions
+/// </summary>
+
 public class HelpCaptions : MonoBehaviour
 {
 
@@ -8,14 +12,7 @@ public class HelpCaptions : MonoBehaviour
     public Text titleCaption;
     public Text[] helpLineCaption;
 
-    private bool helpForAndroid = false;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private readonly bool helpForAndroid = false;
 
     // Modify captions
     public void ChangeCaptions()
@@ -68,11 +65,5 @@ public class HelpCaptions : MonoBehaviour
                 }
                 break;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

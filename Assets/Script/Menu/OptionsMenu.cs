@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Script for the options menu
+/// </summary>
+
 public class OptionsMenu : MonoBehaviour
 {
     private const string SceneName = "Options";
@@ -11,22 +15,16 @@ public class OptionsMenu : MonoBehaviour
     public InputField userName;
     public Dropdown language;
 
-    // Options text
+    // Options caption
     public OptionsCaptions optionsCaptions;
 
-    // Start is called before the first frame update
+    // On start: we get internal state to reflect the UI
     void Start()
     {
         musicSlider.value = DataManagement.data.musicVolume;
         soundSlider.value = DataManagement.data.soundVolume;
         userName.text = DataManagement.data.userName;
         language.value = DataManagement.data.languageIndex;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     // Change volume slider

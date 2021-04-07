@@ -1,13 +1,17 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+
+/// <summary>
+/// Class that deals with data management, take track of music / sounds and captions
+/// </summary>
 
 public class DataManagement : MonoBehaviour
 {
 
+    // Data handlers
     public static DataToSave data;
     public static bool wereDataLoaded = false;
+    // Do we need to reset data (used when we had to)?
     public bool hasToResetData;
 
     // Background music

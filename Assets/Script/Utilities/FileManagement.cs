@@ -11,6 +11,7 @@ public static class FileManagement
     // File name
     private static readonly string fileName = Application.persistentDataPath + "/data.save";
 
+    // Save data to disk
     public static void SaveData(DataToSave dataToSave)
     {
         BinaryFormatter binaryFormatter = new BinaryFormatter();
@@ -19,6 +20,7 @@ public static class FileManagement
         file.Close();
     }
 
+    // Load data from disk
     public static DataToSave LoadData()
     {
         DataToSave data = new DataToSave();

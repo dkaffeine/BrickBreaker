@@ -1,15 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+/// <summary>
+/// Main menu captions, derivated from Captions class
+/// </summary>
 
 public class MainMenuCaptions : Captions
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public override void UpdateCaptions()
     {
         switch(DataManagement.data.languageIndex)
@@ -29,12 +23,5 @@ public class MainMenuCaptions : Captions
                 captions[3].text = "Quitter";
                 break;
         }
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

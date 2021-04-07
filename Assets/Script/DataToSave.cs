@@ -1,8 +1,9 @@
-
 using System.Collections.Generic;
+
 /// <summary>
 /// Serializable class used to save options data
 /// </summary>
+
 [System.Serializable]
 public class DataToSave
 {

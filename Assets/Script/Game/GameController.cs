@@ -1,6 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// Game controller - retrieve both information about the keyboard pressed and the buttons on Android HUD pressed
+/// </summary>
 
 public class GameController : MonoBehaviour
 {

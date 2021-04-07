@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Script rattached to main menu
+/// </summary>
+
 public class MainMenu : MonoBehaviour
 {
 
@@ -18,6 +22,7 @@ public class MainMenu : MonoBehaviour
         
     }
 
+    // Play is pressed: Enjoy!
     public void PlayClicked()
     {
         // Stop playing current background music
@@ -28,18 +33,21 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 
+    // Opens options
     public void OptionsClicked()
     {
         const string sceneName = "Options";
         ExtraScene.Load(sceneName);
     }
 
+    // Opens hiscores
     public void HiscoresClicked()
     {
         const string sceneName = "Hiscores";
         ExtraScene.Load(sceneName);
     }
 
+    // Quit the application
     public void QuitClicked()
     {
 
@@ -56,6 +64,7 @@ public class MainMenu : MonoBehaviour
 #endif
     }
 
+    // Opens the help menu
     public void HelpClicked()
     {
         const string sceneName = "Help";

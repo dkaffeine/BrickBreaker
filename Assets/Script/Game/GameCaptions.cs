@@ -1,16 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+/// <summary>
+/// Game captions, derivated from Captions class
+/// </summary>
 
 public class GameCaptions : Captions
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public override void UpdateCaptions()
     {
         switch (DataManagement.data.languageIndex)
@@ -44,12 +37,5 @@ public class GameCaptions : Captions
                 captions[10].text = "Prochain";
                 break;
         }
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

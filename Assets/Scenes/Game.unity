@@ -1310,7 +1310,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1508905693}
-        m_TargetAssemblyTypeName: GameOverPanel, Assembly-CSharp
+        m_TargetAssemblyTypeName: PausePanel, Assembly-CSharp
         m_MethodName: MainMenuClicked
         m_Mode: 1
         m_Arguments:
@@ -4162,9 +4162,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1508905691}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0de524a82aa0625489ea6bf549fe9918, type: 3}
+  m_Script: {fileID: 11500000, guid: 031723ba1ef439b42adb66840b0a8890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
   dataManagement: {fileID: 2067227444}
 --- !u!1 &1512671704
 GameObject:
@@ -4670,7 +4671,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1508905693}
-        m_TargetAssemblyTypeName: GameOverPanel, Assembly-CSharp
+        m_TargetAssemblyTypeName: PausePanel, Assembly-CSharp
         m_MethodName: RestartClicked
         m_Mode: 1
         m_Arguments:

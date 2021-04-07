@@ -1,6 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// Script attached to the fixed next spawner
+/// </summary>
 
 public class NextSpawner : MonoBehaviour
 {
@@ -19,6 +21,7 @@ public class NextSpawner : MonoBehaviour
         currentPieceObject = spawner.CreatePiece(transform.position);
         currentPieceId = spawner.nextId;
 
+        // We get the Piece component and disable it to deactivate the associated game engine
         Piece piece = (Piece)currentPieceObject.GetComponent(typeof(Piece));
         piece.enabled = false;
     }
@@ -41,6 +44,7 @@ public class NextSpawner : MonoBehaviour
         if (currentPieceId != spawner.nextId)
         {
             // We update the piece in the next spawner if the next piece's id is effectively different
+            // (if next piece's id is the same, we won't flash it)
             DeleteFixedPiece();
             CreateFixedPiece();
         }

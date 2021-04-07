@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public static class ExtraScene
 {
+    // Check if a scene is loaded
     public static bool IsSceneLoaded(string sceneName)
     {
         for (int i = 0; i < SceneManager.sceneCount; ++i)
@@ -22,6 +23,7 @@ public static class ExtraScene
         return false;
     }
 
+    // Load a scene if that scene is not already loaded
     public static void Load(string sceneName)
     {
         if (IsSceneLoaded(sceneName) == false)
@@ -30,6 +32,7 @@ public static class ExtraScene
         }
     }
 
+    // Unloads a scene if that scene is loaded
     public static void Unload(string sceneName)
     {
         if (IsSceneLoaded(sceneName) == true)
@@ -37,5 +40,4 @@ public static class ExtraScene
             SceneManager.UnloadSceneAsync(sceneName);
         }
     }
-
 }

@@ -1,25 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Generic captions class
+/// </summary>
+
 public class Captions : MonoBehaviour
 {
 
     public Text[] captions;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    // Virtual method for captions updating
     virtual public void UpdateCaptions()
     {
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

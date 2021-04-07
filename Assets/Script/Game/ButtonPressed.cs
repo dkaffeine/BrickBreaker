@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Class that simulates both pressing button and keeping button pressed
+/// </summary>
+
 public class ButtonPressed : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
 

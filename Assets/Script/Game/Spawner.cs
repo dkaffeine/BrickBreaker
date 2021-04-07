@@ -1,6 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// Pieces spawner
+/// </summary>
 
 public class Spawner : MonoBehaviour
 {
@@ -14,7 +16,7 @@ public class Spawner : MonoBehaviour
     // Next piece Id
     public int nextId;
 
-    // Start is called before the first frame update
+    // On start: we generate a random piece
     void Start()
     {
         nextId = Random.Range(0, pieces.Length);
@@ -31,7 +33,7 @@ public class Spawner : MonoBehaviour
         nextId = Random.Range(0, pieces.Length);
     }
 
-    // Create a piece
+    // Create a piece in the game engine
     public GameObject CreatePiece(Vector3 piecePosition)
     {
         GameObject piece = Instantiate(pieces[nextId], piecePosition, Quaternion.identity);

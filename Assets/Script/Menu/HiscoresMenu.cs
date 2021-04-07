@@ -1,30 +1,30 @@
 using UnityEngine;
 
+/// <summary>
+/// Script ratteched to high scores menu
+/// </summary>
+
 public class HiscoresMenu : MonoBehaviour
 {
     private const string SceneName = "Hiscores";
 
     public HiscoresCaption hiscoresCaption;
 
-    // Start is called before the first frame update
+    // On start: update captions
     void Start()
     {
         hiscoresCaption.ChangeCaptions();
         hiscoresCaption.DisplayHiscores();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // Reset high scores
     public void ResetScores()
     {
         DataManagement.RegenerateHiscores();
         hiscoresCaption.DisplayHiscores();
     }
 
+    // Close this menu
     public void CloseMenu()
     {
         FileManagement.SaveData(DataManagement.data);
