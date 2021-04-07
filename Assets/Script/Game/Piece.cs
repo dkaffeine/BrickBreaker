@@ -9,10 +9,13 @@ public class Piece : MonoBehaviour
     // Delta time for falling at level 1
     private float fallTimeStartingLevel = 1.5f;
 
-    // Reference to game controller
+    // Reference to game controller to get control keys
     private GameController gameController;
 
-    // Reference to the spawner
+    // Reference to data management to get sound effects
+    public DataManagement dataManagement;
+
+    // Reference to the spawner to get the game over panel
     private Spawner spawner;
 
     // Start is called before the first frame update
@@ -20,6 +23,7 @@ public class Piece : MonoBehaviour
     {
         // Ger terefences
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        dataManagement = GameObject.Find("UI").GetComponent<DataManagement>();
         spawner = GameObject.Find("Spawner").GetComponent<Spawner>();
 
         // Set the last fall time on the grid
@@ -176,9 +180,20 @@ public class Piece : MonoBehaviour
     void GameOver()
     {
         enabled = false;
+        DisableAndroidHUD();
         spawner.gameOver.SetActive(true);
         DataManagement.AddHiscore(ScoreAndLevelManager.score);
         FileManagement.SaveData(DataManagement.data);
+    }
+
+    // Disable Android HUD
+    void DisableAndroidHUD()
+    {
+        GameObject androidHud = GameObject.Find("Android HUD");
+        if (androidHud != null)
+        {
+            androidHud.SetActive(false);
+        }
     }
 
     // Update is called once per frame

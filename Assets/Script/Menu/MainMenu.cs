@@ -56,4 +56,10 @@ public class MainMenu : MonoBehaviour
 #endif
     }
 
+    public void HelpClicked()
+    {
+        const string sceneName = "Help";
+        ExtraScene.Load(sceneName);
+    }
+
 }

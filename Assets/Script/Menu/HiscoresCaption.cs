@@ -35,8 +35,8 @@ public class HiscoresCaption : MonoBehaviour
         }
     }
 
-// Display highscores
-public void DisplayHiscores()
+    // Display highscores
+    public void DisplayHiscores()
     {
         int i = 0;
         foreach(KeyValuePair<uint, string> hiscore in DataManagement.data.hiscores)
