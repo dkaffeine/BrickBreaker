@@ -27,6 +27,7 @@ public class GameCaptions : Captions
                 captions[7].text = "Score";
                 captions[8].text = "Level";
                 captions[9].text = "Lines";
+                captions[10].text = "Next";
                 break;
             case 1:
                 // French
@@ -40,6 +41,7 @@ public class GameCaptions : Captions
                 captions[7].text = "Score";
                 captions[8].text = "Niveau";
                 captions[9].text = "Lignes";
+                captions[10].text = "Prochain";
                 break;
         }
 
