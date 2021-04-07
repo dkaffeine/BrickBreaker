@@ -11,6 +11,7 @@ public class ScoreAndLevelManager : MonoBehaviour
 
     public Text scoreText;
     public Text levelText;
+    public Text linesDestroyedText;
 
     // Start is called before the first frame update
     void Start()
@@ -25,5 +26,6 @@ public class ScoreAndLevelManager : MonoBehaviour
     {
         scoreText.text = String.Format("{0:D8}", score);
         levelText.text = level.ToString();
+        linesDestroyedText.text = linesDestroyed.ToString();
     }
 }

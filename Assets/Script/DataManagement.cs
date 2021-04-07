@@ -59,16 +59,16 @@ public class DataManagement : MonoBehaviour
         }
         // Generate hiscores
         data.hiscoresGenerated = true;
-        data.hiscores.Add(new KeyValuePair<uint, string>(500u, "10th place"));
-        data.hiscores.Add(new KeyValuePair<uint, string>(1000u, "9th place"));
-        data.hiscores.Add(new KeyValuePair<uint, string>(1500u, "8th place"));
-        data.hiscores.Add(new KeyValuePair<uint, string>(2000u, "7th place"));
-        data.hiscores.Add(new KeyValuePair<uint, string>(2500u, "6th place"));
-        data.hiscores.Add(new KeyValuePair<uint, string>(3000u, "5th place"));
-        data.hiscores.Add(new KeyValuePair<uint, string>(3500u, "4th place"));
-        data.hiscores.Add(new KeyValuePair<uint, string>(4000u, "3rd place"));
-        data.hiscores.Add(new KeyValuePair<uint, string>(4500u, "2nd place"));
-        data.hiscores.Add(new KeyValuePair<uint, string>(5000u, "1st place"));
+        data.hiscores.Add(new KeyValuePair<uint, string>(5000u, "10th place"));
+        data.hiscores.Add(new KeyValuePair<uint, string>(10000u, "9th place"));
+        data.hiscores.Add(new KeyValuePair<uint, string>(15000u, "8th place"));
+        data.hiscores.Add(new KeyValuePair<uint, string>(20000u, "7th place"));
+        data.hiscores.Add(new KeyValuePair<uint, string>(25000u, "6th place"));
+        data.hiscores.Add(new KeyValuePair<uint, string>(30000u, "5th place"));
+        data.hiscores.Add(new KeyValuePair<uint, string>(35000u, "4th place"));
+        data.hiscores.Add(new KeyValuePair<uint, string>(40000u, "3rd place"));
+        data.hiscores.Add(new KeyValuePair<uint, string>(45000u, "2nd place"));
+        data.hiscores.Add(new KeyValuePair<uint, string>(50000u, "1st place"));
     }
 
     // Regenerate highscores

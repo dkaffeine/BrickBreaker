@@ -99,7 +99,7 @@ public class Piece : MonoBehaviour
     }
 
     // Try changing position
-    void TryChangePosition(Vector3 displacement)
+    bool TryChangePosition(Vector3 displacement)
     {
 
         // Move the object with respect to displacement
@@ -108,13 +108,17 @@ public class Piece : MonoBehaviour
         // Check if the movement is a valid one
         if (IsValidGridPosition())
         {
-            // If it's a valid grid position, update it
+            // If it's a valid grid position, update it and play sound
+            AudioSource audioSource = dataManagement.soundEffects[4];
+            audioSource.Play();
             UpdateGrid();
+            return true;
         }
         else
         {
             // Revert displacement
             transform.position -= displacement;
+            return false;
         }
 
     }
@@ -135,7 +139,9 @@ public class Piece : MonoBehaviour
         // Check if the movement is a valid one
         if (IsValidGridPosition())
         {
-            // If it's a valid grid position, update it
+            // If it's a valid grid position, update it and play sound
+            AudioSource audioSource = dataManagement.soundEffects[4];
+            audioSource.Play();
             UpdateGrid();
         }
         else
@@ -150,18 +156,12 @@ public class Piece : MonoBehaviour
     // Make that piece falling
     void PieceFalling()
     {
-        transform.position += new Vector3(0, -1, 0);
 
-        // Check if the movement is a valid one
-        if (IsValidGridPosition())
+        if (TryChangePosition(new Vector3(0, -1, 0)) == false)
         {
-            // If it's a valid grid position, update it
-            UpdateGrid();
-        }
-        else
-        {
-            // Revert displacement
-            transform.position += new Vector3(0, 1, 0);
+            // Piece was falling, update sound
+            AudioSource audioSource = dataManagement.soundEffects[6];
+            audioSource.Play();
 
             // Trigger grid line deletion (if any) and score
             GameEngineGrid.CheckGridAndScore();

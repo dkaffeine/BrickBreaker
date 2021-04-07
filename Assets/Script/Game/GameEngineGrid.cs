@@ -124,7 +124,13 @@ public class GameEngineGrid : MonoBehaviour
         }
 
         // Update level: starting at level 1, gain 1 level for every 10 lines destroyed
-        ScoreAndLevelManager.level = 1 + ScoreAndLevelManager.linesDestroyed / 10;
+        int newLevel = 1 + ScoreAndLevelManager.linesDestroyed / 10;
+        if (ScoreAndLevelManager.level != newLevel)
+        {
+            audioSource = GameObject.Find("UI").GetComponent<DataManagement>().soundEffects[5];
+            audioSource.Play();
+            ScoreAndLevelManager.level = newLevel;
+        }
     }
 
 }

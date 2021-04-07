@@ -8,7 +8,7 @@ public class HelpCaptions : MonoBehaviour
     public Text titleCaption;
     public Text[] helpLineCaption;
 
-    private bool helpForAndroid = true;
+    private bool helpForAndroid = false;
 
 
     // Start is called before the first frame update
