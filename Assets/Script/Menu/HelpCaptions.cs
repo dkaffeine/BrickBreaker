@@ -12,7 +12,7 @@ public class HelpCaptions : MonoBehaviour
     public Text titleCaption;
     public Text[] helpLineCaption;
 
-    private readonly bool helpForAndroid = false;
+    private readonly bool helpForAndroid = true;
 
     // Modify captions
     public void ChangeCaptions()
