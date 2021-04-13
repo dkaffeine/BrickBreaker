@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Script rattached to main menu
@@ -25,12 +24,8 @@ public class MainMenu : MonoBehaviour
     // Play is pressed: Enjoy!
     public void PlayClicked()
     {
-        // Stop playing current background music
-        dataManagement.backgroundMusic.Stop();
-
-        // Load game scene
-        const string sceneName = "Game";
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        const string sceneName = "PlayInterface";
+        ExtraScene.Load(sceneName);
     }
 
     // Opens options
@@ -41,9 +36,9 @@ public class MainMenu : MonoBehaviour
     }
 
     // Opens hiscores
-    public void HiscoresClicked()
+    public void HiscoresAClicked()
     {
-        const string sceneName = "Hiscores";
+        const string sceneName = "HiscoresA";
         ExtraScene.Load(sceneName);
     }
 

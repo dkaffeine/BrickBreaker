@@ -36,7 +36,7 @@ public class HiscoresCaption : MonoBehaviour
     public void DisplayHiscores()
     {
         int i = 0;
-        foreach(KeyValuePair<uint, string> hiscore in DataManagement.data.hiscores)
+        foreach(KeyValuePair<uint, string> hiscore in DataManagement.data.tetrisAHighscores)
         {
             scoresCaptions[i].text = hiscore.Key.ToString();
             nameCaptions[i].text = hiscore.Value;

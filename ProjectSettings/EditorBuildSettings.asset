@@ -9,15 +9,24 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Game.unity
-    guid: 6af7d3b8704365e4abf8227ee7467c03
-  - enabled: 1
-    path: Assets/Scenes/Hiscores.unity
-    guid: 3e21d6159266b5842a7bd771b182c8ee
-  - enabled: 1
     path: Assets/Scenes/Options.unity
     guid: 0a028a81eafe05647a2ac699a4668ded
   - enabled: 1
     path: Assets/Scenes/Help.unity
     guid: 639cb331ec7de1a47ba9d81cfe285160
+  - enabled: 1
+    path: Assets/Scenes/PlayInterface.unity
+    guid: 6e0fc576808bf9e4281fe2a931d5f4bc
+  - enabled: 1
+    path: Assets/Scenes/TetrisA.unity
+    guid: 6af7d3b8704365e4abf8227ee7467c03
+  - enabled: 1
+    path: Assets/Scenes/TetrisB.unity
+    guid: 0b4454b1971dc6e408545ebe8bb5fbaf
+  - enabled: 1
+    path: Assets/Scenes/HiscoresA.unity
+    guid: 3e21d6159266b5842a7bd771b182c8ee
+  - enabled: 1
+    path: Assets/Scenes/HiscoresB.unity
+    guid: 52e4c55065c32134ba3e9c30c40f80f4
   m_configObjects: {}
