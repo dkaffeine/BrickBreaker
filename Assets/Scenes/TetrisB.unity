@@ -2307,6 +2307,8 @@ MonoBehaviour:
   - {fileID: 1297322215724910, guid: c413a4056325e6a46a71589a61729cd3, type: 3}
   - {fileID: 1513087140446204, guid: c9332f319d22d6e48ae166cdea890940, type: 3}
   - {fileID: 1046241891430854, guid: 85d4d7f8a593ce94389946903f4a1b9b, type: 3}
+  - {fileID: 1230428251124208, guid: 7dbfea2d35c1e1e4fa1f13f44f359f51, type: 3}
+  - {fileID: 1541447743274156, guid: 1f5a1b28f9a5af94baa9d4dca38b4d6b, type: 3}
   gameOver: {fileID: 1508905691}
   nextId: 0
 --- !u!1 &870061073
