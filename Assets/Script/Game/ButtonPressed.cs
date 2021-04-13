@@ -8,22 +8,29 @@ using UnityEngine.EventSystems;
 public class ButtonPressed : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
 
-    private bool isPressed;
-    private bool wasPressed;
-    private bool hasThisButtonBeenJustPushed;
+    // UI Button status
+    private bool isUIButtonPressed = false;
+
+    // Button status
+    private bool isPressed = false;
+    private bool wasPressed = false;
+    private bool hasThisButtonBeenJustPushed = false;
+
+    // Equivalent keyboard code
+    public KeyCode keyCode;
 
     // Start is called before the first frame update
     void Start()
     {
-        // On start, the button is not pressed
-        isPressed = false;
-        wasPressed = false;
-        hasThisButtonBeenJustPushed = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        // Set up the press status
+        isPressed = isUIButtonPressed || Input.GetKey(keyCode);
+
         // The button has been just pressed if it was not pressed before but just now
         hasThisButtonBeenJustPushed = (wasPressed == false && isPressed == true) ? true : false;
 
@@ -46,12 +53,12 @@ public class ButtonPressed : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     // Method from interface IPointerDownHandler called when you press down the button
     public void OnPointerDown(PointerEventData eventData)
     {
-        isPressed = true;
+        isUIButtonPressed = true;
     }
 
     // Method from interface IPointerUpHandler called when you releast the press on the button
     public void OnPointerUp(PointerEventData eventData)
     {
-        isPressed = false;
+        isUIButtonPressed = false;
     }
 }

@@ -79,7 +79,7 @@ public class GameEngineGrid : MonoBehaviour
     // Check grid and score if at least one line has been destroyed
     public static void CheckGridAndScore()
     {
-        int linesDestroyed = 0;
+        uint linesDestroyed = 0;
 
         // We check from top to bottom to avoid unnecessarily loopins in case of row deletion
         for (int rowToCheck = height-1; rowToCheck >= 0; rowToCheck--)
@@ -103,29 +103,29 @@ public class GameEngineGrid : MonoBehaviour
             case 0:
                 break;
             case 1:
-                ScoreAndLevelManager.score += (uint)ScoreAndLevelManager.level * 100;
+                ScoreAndLevelManager.score += ScoreAndLevelManager.level * 100;
                 audioSource = GameObject.Find("UI").GetComponent<DataManagement>().soundEffects[0];
                 audioSource.Play();
                 break;
             case 2:
-                ScoreAndLevelManager.score += (uint)ScoreAndLevelManager.level * 300;
+                ScoreAndLevelManager.score += ScoreAndLevelManager.level * 300;
                 audioSource = GameObject.Find("UI").GetComponent<DataManagement>().soundEffects[1];
                 audioSource.Play();
                 break;
             case 3:
-                ScoreAndLevelManager.score += (uint)ScoreAndLevelManager.level * 600;
+                ScoreAndLevelManager.score += ScoreAndLevelManager.level * 600;
                 audioSource = GameObject.Find("UI").GetComponent<DataManagement>().soundEffects[2];
                 audioSource.Play();
                 break;
             case 4:
-                ScoreAndLevelManager.score += (uint)ScoreAndLevelManager.level * 1000;
+                ScoreAndLevelManager.score += ScoreAndLevelManager.level * 1000;
                 audioSource = GameObject.Find("UI").GetComponent<DataManagement>().soundEffects[3];
                 audioSource.Play();
                 break;
         }
 
         // Update level: starting at level 1, gain 1 level for every 10 lines destroyed
-        int newLevel = 1 + ScoreAndLevelManager.linesDestroyed / 10;
+        uint newLevel = 1 + ScoreAndLevelManager.linesDestroyed / 10;
         if (ScoreAndLevelManager.level != newLevel)
         {
             audioSource = GameObject.Find("UI").GetComponent<DataManagement>().soundEffects[5];

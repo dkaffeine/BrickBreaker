@@ -10,8 +10,8 @@ public class ScoreAndLevelManager : MonoBehaviour
 {
 
     public static uint score;
-    public static int level;
-    public static int linesDestroyed;
+    public static uint level;
+    public static uint linesDestroyed;
 
     public Text scoreText;
     public Text levelText;

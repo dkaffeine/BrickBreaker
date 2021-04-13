@@ -15,10 +15,11 @@ public class GameController : MonoBehaviour
     public ButtonPressed buttonPressedDown;
     public ButtonPressed buttonPressedH;
     public ButtonPressed buttonPressedJ;
+    public ButtonPressed buttonPressedSpace;
 
     // Determines when the key was pressed last
-    public float lastKeyDown;
-    public float lastPressedTime;
+    private float lastKeyDown;
+    private float lastPressedTime;
 
     // Determine time between two repetitions
     private float deltaTime = 0.5f;
@@ -38,10 +39,10 @@ public class GameController : MonoBehaviour
     }
 
     // Get
-    public bool GetKeyPressed(KeyCode keyCode, ButtonPressed buttonPressed)
+    public bool GetKeyPressed( ButtonPressed buttonPressed)
     {
-        bool isKeyDown = Input.GetKeyDown(keyCode) || buttonPressed.HasThisButtonBeenJustPushed();
-        bool isPressed = Input.GetKey(keyCode) || buttonPressed.IsPressed();
+        bool isKeyDown = buttonPressed.HasThisButtonBeenJustPushed();
+        bool isPressed = buttonPressed.IsPressed();
 
         if (isKeyDown)
         {
@@ -62,23 +63,27 @@ public class GameController : MonoBehaviour
     // Get the different keys
     public bool GetHPressed()
     {
-        return GetKeyPressed(KeyCode.H, buttonPressedH);
+        return GetKeyPressed(buttonPressedH);
     }
     public bool GetJPressed()
     {
-        return GetKeyPressed(KeyCode.J, buttonPressedJ);
+        return GetKeyPressed(buttonPressedJ);
     }
     public bool GetDownPressed()
     {
-        return GetKeyPressed(KeyCode.DownArrow, buttonPressedDown);
+        return GetKeyPressed(buttonPressedDown);
     }
     public bool GetLeftPressed()
     {
-        return GetKeyPressed(KeyCode.LeftArrow, buttonPressedLeft);
+        return GetKeyPressed(buttonPressedLeft);
     }
     public bool GetRightPressed()
     {
-        return GetKeyPressed(KeyCode.RightArrow, buttonPressedRight);
+        return GetKeyPressed(buttonPressedRight);
+    }
+    public bool GetSpacePressed()
+    {
+        return GetKeyPressed(buttonPressedSpace);
     }
 
     // Update is called once per frame

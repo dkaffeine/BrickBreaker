@@ -186,7 +186,22 @@ public class Piece : MonoBehaviour
             enabled = false;
         }
 
+    }
 
+    // Make the piece falling until it reaches the ground
+    void PieceFallingToTheGround()
+    {
+
+        uint scoreFalling = 0;
+
+        while (TryChangePosition(new Vector3(0, -1, 0)) == true)
+        {
+            scoreFalling += ScoreAndLevelManager.level * 5;
+        }
+
+        ScoreAndLevelManager.score += scoreFalling;
+
+        PieceFalling();
     }
 
     // Game over
@@ -249,6 +264,10 @@ public class Piece : MonoBehaviour
             PieceFalling();
             lastFallTime = Time.time;
         }
-    }
 
+        if (gameController.GetSpacePressed())
+        {
+            PieceFallingToTheGround();
+        }
+    }
 }
