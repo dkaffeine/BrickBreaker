@@ -32,7 +32,7 @@ public class HelpCaptions : MonoBehaviour
                 if (helpForAndroid)
                 {
                     helpLineCaption[5].text = "Arrows on left part of HUD move piece";
-                    helpLineCaption[6].text = "Arrows on left part of HUD  rotate piece";
+                    helpLineCaption[6].text = "Arrows on left part of HUD rotate piece";
                     helpLineCaption[7].text = "";
                 }
                 else

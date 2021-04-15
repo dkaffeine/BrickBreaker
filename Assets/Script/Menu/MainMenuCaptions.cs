@@ -13,12 +13,14 @@ public class MainMenuCaptions : Captions
                 captions[0].text = "Play";
                 captions[1].text = "Options";
                 captions[2].text = "Quit";
+                captions[3].text = "Help";
                 break;
             case 1:
                 // French
                 captions[0].text = "Jouer";
                 captions[1].text = "Options";
                 captions[2].text = "Quitter";
+                captions[3].text = "Aide";
                 break;
         }
     }
