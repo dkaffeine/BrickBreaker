@@ -35,8 +35,23 @@ public class HiscoresCaption : MonoBehaviour
     // Display highscores
     public void DisplayHiscores()
     {
+        switch (ScoreAndLevelManager.gameType)
+        {
+            case GameType.TetrisA:
+                DisplayHiscoresFromTable(DataManagement.data.tetrisAHighscores);
+                break;
+            case GameType.TetrisB:
+                DisplayHiscoresFromTable(DataManagement.data.tetrisBHighscores);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void DisplayHiscoresFromTable(List<KeyValuePair<uint, string>> table)
+    {
         int i = 0;
-        foreach(KeyValuePair<uint, string> hiscore in DataManagement.data.tetrisAHighscores)
+        foreach (KeyValuePair<uint, string> hiscore in table)
         {
             scoresCaptions[i].text = hiscore.Key.ToString();
             nameCaptions[i].text = hiscore.Value;
@@ -44,6 +59,7 @@ public class HiscoresCaption : MonoBehaviour
         }
 
     }
+
 
     // Update is called once per frame
     void Update()

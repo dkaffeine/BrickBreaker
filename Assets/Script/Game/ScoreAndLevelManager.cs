@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class ScoreAndLevelManager : MonoBehaviour
 {
 
+    public static GameType gameType = GameType.TetrisA;
     public static uint score;
     public static uint level;
     public static uint linesDestroyed;

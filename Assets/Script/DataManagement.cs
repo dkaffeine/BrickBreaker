@@ -24,6 +24,9 @@ public class DataManagement : MonoBehaviour
     // Captions
     public Captions captions;
 
+    // Game type
+    public GameType gameType;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +54,8 @@ public class DataManagement : MonoBehaviour
             GenerateHiscores();
             wereDataLoaded = true;
         }
+
+        ScoreAndLevelManager.gameType = gameType;
     }
 
     /// <summary>
@@ -93,25 +98,55 @@ public class DataManagement : MonoBehaviour
     // Regenerate highscores
     public static void RegenerateHiscores()
     {
-        // Clear old hiscores
-        data.tetrisAHighscores.Clear();
-        data.tetrisAHighscoresGenerated = false;
+        // Clear old hiscores and generate high scores, depending on game type
+        switch (ScoreAndLevelManager.gameType)
+        {
+            case GameType.TetrisA:
+                RegenerateHiscoresFromTable(ref data.tetrisAHighscores, ref data.tetrisAHighscoresGenerated);
+                GenerateHiscoresSingleGame(ref data.tetrisAHighscoresGenerated, ref data.tetrisAHighscores);
+                break;
+            case GameType.TetrisB:
+                RegenerateHiscoresFromTable(ref data.tetrisBHighscores, ref data.tetrisBHighscoresGenerated);
+                GenerateHiscoresSingleGame(ref data.tetrisBHighscoresGenerated, ref data.tetrisBHighscores);
+                break;
+            default:
+                break;
+        }
+    }
 
-        // And generate them again
-        GenerateHiscores();
+    public static void RegenerateHiscoresFromTable(ref List<KeyValuePair<uint, string>> table, ref bool flag)
+    {
+        table.Clear();
+        flag = false;
     }
 
     public static void AddHiscore(uint score)
     {
+        switch (ScoreAndLevelManager.gameType)
+        {
+            case GameType.TetrisA:
+                AddHiscoreIntoTable(score, ref data.tetrisAHighscores);
+                break;
+            case GameType.TetrisB:
+                AddHiscoreIntoTable(score, ref data.tetrisBHighscores);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public static void AddHiscoreIntoTable(uint score, ref List<KeyValuePair<uint, string>> table)
+    {
         // We add an hiscore to the list
-        data.tetrisAHighscores.Add(new KeyValuePair<uint, string>(score, data.userName));
+        table.Add(new KeyValuePair<uint, string>(score, data.userName));
 
         // Sort list
-        data.tetrisAHighscores.Sort((x, y) => x.Key.CompareTo(y.Key));
+        table.Sort((x, y) => x.Key.CompareTo(y.Key));
 
         // We keep the top 10 then, since there are 11 values, the first one is the lowest score
-        data.tetrisAHighscores.RemoveAt(0);
+        table.RemoveAt(0);
     }
+
 
     public void PlayBackgroundMusic()
     {

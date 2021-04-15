@@ -2262,6 +2262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00045461fead22b468769ec1d8805dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameType: 1
   hiscoresCaption: {fileID: 1156166250}
 --- !u!1 &1157270175
 GameObject:
@@ -2743,7 +2744,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0
-  m_Text: Hiscores
+  m_Text: Hiscores - Tetris B
 --- !u!222 &1613859171
 CanvasRenderer:
   m_ObjectHideFlags: 0

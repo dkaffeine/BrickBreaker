@@ -12,15 +12,13 @@ public class MainMenuCaptions : Captions
                 // English
                 captions[0].text = "Play";
                 captions[1].text = "Options";
-                captions[2].text = "Hiscores";
-                captions[3].text = "Quit";
+                captions[2].text = "Quit";
                 break;
             case 1:
                 // French
                 captions[0].text = "Jouer";
                 captions[1].text = "Options";
-                captions[2].text = "Hiscores";
-                captions[3].text = "Quitter";
+                captions[2].text = "Quitter";
                 break;
         }
     }

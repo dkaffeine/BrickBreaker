@@ -5327,6 +5327,7 @@ MonoBehaviour:
   - {fileID: 1083355021}
   - {fileID: 502621333}
   captions: {fileID: 2067227445}
+  gameType: 1
 --- !u!114 &2067227445
 MonoBehaviour:
   m_ObjectHideFlags: 0

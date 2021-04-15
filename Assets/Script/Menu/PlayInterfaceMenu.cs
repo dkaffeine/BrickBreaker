@@ -31,6 +31,20 @@ public class PlayInterfaceMenu : MonoBehaviour
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 
+    // Opens hiscores for Tetris A
+    public void HiscoresAClicked()
+    {
+        const string sceneName = "HiscoresA";
+        ExtraScene.Load(sceneName);
+    }
+
+    // Opens hiscores for Tetris B
+    public void HiscoresBClicked()
+    {
+        const string sceneName = "HiscoresB";
+        ExtraScene.Load(sceneName);
+    }
+
     // Close this menu
     public void CloseMenu()
     {

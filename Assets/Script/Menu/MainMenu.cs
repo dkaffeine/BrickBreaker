@@ -35,13 +35,6 @@ public class MainMenu : MonoBehaviour
         ExtraScene.Load(sceneName);
     }
 
-    // Opens hiscores
-    public void HiscoresAClicked()
-    {
-        const string sceneName = "HiscoresA";
-        ExtraScene.Load(sceneName);
-    }
-
     // Quit the application
     public void QuitClicked()
     {
