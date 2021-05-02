@@ -9,6 +9,7 @@ using UnityEngine;
 public class Piece : MonoBehaviour
 {
 
+
     // Time since last fall iteration
     private float lastFallTime;
 
@@ -155,12 +156,19 @@ public class Piece : MonoBehaviour
             // If it's a valid grid position, update it and play sound
             AudioSource audioSource = dataManagement.soundEffects[4];
             audioSource.Play();
+
+            // Backward rotates each child, so that all blocks composing 
+            foreach (Transform child in transform)
+            {
+                child.Rotate(-angle);
+            }
+
             UpdateGrid();
         }
         else
         {
             // Revert displacement
-            transform.Rotate(new Vector3(-angle.x, -angle.y, -angle.z));
+            transform.Rotate(-angle);
         }
 
     }
