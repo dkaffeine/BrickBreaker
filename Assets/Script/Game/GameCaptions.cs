@@ -8,8 +8,7 @@ public class GameCaptions : Captions
     {
         switch (DataManagement.data.languageIndex)
         {
-            case 0:
-                // English
+            case Language.English:
                 captions[0].text = "Main Menu";
                 captions[1].text = "Restart";
                 captions[2].text = "Options";
@@ -22,8 +21,7 @@ public class GameCaptions : Captions
                 captions[9].text = "Lines";
                 captions[10].text = "Next";
                 break;
-            case 1:
-                // French
+            case Language.French:
                 captions[0].text = "Menu principal";
                 captions[1].text = "Redémarrage";
                 captions[2].text = "Options";

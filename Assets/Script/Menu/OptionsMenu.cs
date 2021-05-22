@@ -24,7 +24,7 @@ public class OptionsMenu : MonoBehaviour
         musicSlider.value = DataManagement.data.musicVolume;
         soundSlider.value = DataManagement.data.soundVolume;
         userName.text = DataManagement.data.userName;
-        language.value = DataManagement.data.languageIndex;
+        language.value = (int)DataManagement.data.languageIndex;
     }
 
     // Change volume slider
@@ -48,7 +48,7 @@ public class OptionsMenu : MonoBehaviour
     // Change language
     public void ChangeLanguage()
     {
-        DataManagement.data.languageIndex = language.value;
+        DataManagement.data.languageIndex = (Language)language.value;
         optionsCaptions.UpdateCaptions();
 
         // Update also captions in the scene loaded

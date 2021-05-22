@@ -21,8 +21,7 @@ public class PlayInterfaceCaption : MonoBehaviour
     {
         switch(DataManagement.data.languageIndex)
         {
-            case 0:
-                // English
+            case Language.English:
                 titleCaption.text = "Play";
                 tetrisACaption.text = "Tetris A";
                 tetrisBCaption.text = "Tetris B";
@@ -30,8 +29,7 @@ public class PlayInterfaceCaption : MonoBehaviour
                 highscoresBCaption.text = "High Scores";
                 closeButtonCaption.text = "Close";
                 break;
-            case 1:
-                // French
+            case Language.French:
                 titleCaption.text = "Jouer";
                 tetrisACaption.text = "Tetris A";
                 tetrisBCaption.text = "Tetris B";

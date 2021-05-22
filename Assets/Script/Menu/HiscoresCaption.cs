@@ -19,13 +19,11 @@ public class HiscoresCaption : MonoBehaviour
     {
         switch(DataManagement.data.languageIndex)
         {
-            case 0:
-                // English
+            case Language.English:
                 resetButtonCaption.text = "Reset";
                 closeButtonCaption.text = "Close";
                 break;
-            case 1:
-                // French
+            case Language.French:
                 resetButtonCaption.text = "R.à.z";
                 closeButtonCaption.text = "Fermer";
                 break;

@@ -12,15 +12,12 @@ public class HelpCaptions : MonoBehaviour
     public Text titleCaption;
     public Text[] helpLineCaption;
 
-    private readonly bool helpForAndroid = true;
-
     // Modify captions
     public void ChangeCaptions()
     {
         switch (DataManagement.data.languageIndex)
         {
-            case 0:
-                // English
+            case Language.English:
                 closeButtonCaption.text = "Close";
                 titleCaption.text = "How to play";
                 helpLineCaption[0].text = "";
@@ -29,21 +26,17 @@ public class HelpCaptions : MonoBehaviour
                 helpLineCaption[3].text = "Don't let pieces touch the top part of screen";
                 helpLineCaption[4].text = "";
 
-                if (helpForAndroid)
-                {
-                    helpLineCaption[5].text = "Arrows on left part of HUD move piece";
-                    helpLineCaption[6].text = "Arrows on left part of HUD rotate piece";
-                    helpLineCaption[7].text = "";
-                }
-                else
-                {
-                    helpLineCaption[5].text = "Arrows keys are used to move piece";
-                    helpLineCaption[6].text = "H or J are used to rotate the piece";
-                    helpLineCaption[7].text = "Escape or P are used for pausing game";
-                }
+#if UNITY_ANDROID && !UNITY_EDITOR
+                helpLineCaption[5].text = "Arrows on left part of HUD move piece";
+                helpLineCaption[6].text = "Arrows on left part of HUD rotate piece";
+                helpLineCaption[7].text = "";
+#else
+                helpLineCaption[5].text = "Arrows keys are used to move piece";
+                helpLineCaption[6].text = "H or J are used to rotate the piece";
+                helpLineCaption[7].text = "Escape or P are used for pausing game";
+#endif
                 break;
-            case 1:
-                // French
+            case Language.French:
                 closeButtonCaption.text = "Fermer";
                 titleCaption.text = "Comment jouer";
                 helpLineCaption[0].text = "";
@@ -51,18 +44,15 @@ public class HelpCaptions : MonoBehaviour
                 helpLineCaption[2].text = "Le niveau augmente pour chaque 10 lignes détruites";
                 helpLineCaption[3].text = "Ne laissez pas les briques toucher la partie haute de l'écran";
                 helpLineCaption[4].text = "";
-                if (helpForAndroid)
-                {
-                    helpLineCaption[5].text = "Les flèches sur la partie gauche bougent la pièce";
-                    helpLineCaption[6].text = "Les flèches sur la partie droite tournent la pièce";
-                    helpLineCaption[7].text = "";
-                }
-                else
-                {
-                    helpLineCaption[5].text = "Les flèches bougent la pièce";
-                    helpLineCaption[6].text = "Les touches H et J font tourner la pièce";
-                    helpLineCaption[7].text = "Les touches Esc et P mettent le jeu en pause";
-                }
+#if UNITY_ANDROID && !UNITY_EDITOR
+                helpLineCaption[5].text = "Les flèches sur la partie gauche bougent la pièce";
+                helpLineCaption[6].text = "Les flèches sur la partie droite tournent la pièce";
+                helpLineCaption[7].text = "";
+#else
+                helpLineCaption[5].text = "Les flèches bougent la pièce";
+                helpLineCaption[6].text = "Les touches H et J font tourner la pièce";
+                helpLineCaption[7].text = "Les touches Esc et P mettent le jeu en pause";
+#endif
                 break;
         }
     }

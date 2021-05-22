@@ -4,6 +4,12 @@ using System.Collections.Generic;
 /// Serializable class used to save options data
 /// </summary>
 
+public enum Language
+{
+    English = 0,
+    French = 1
+}
+
 [System.Serializable]
 public class DataToSave
 {
@@ -14,7 +20,7 @@ public class DataToSave
     public string userName = "Player";
 
     // Language index - 0 stands for English, 1 stands for French
-    public int languageIndex = 1;
+    public Language languageIndex = Language.French;
 
     // Tetris A Hiscores
     public bool tetrisAHighscoresGenerated = false;

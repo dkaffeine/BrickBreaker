@@ -25,16 +25,14 @@ public class OptionsCaptions : MonoBehaviour
     {
         switch(DataManagement.data.languageIndex)
         {
-            case 0:
-                // English
+            case Language.English:
                 musicCaption.text = "Music";
                 soundCaption.text = "Effects";
                 usernameCaption.text = "Username";
                 languageCaption.text = "Language";
                 closeButtonCaption.text = "Close";
                 break;
-            case 1:
-                // French
+            case Language.French:
                 musicCaption.text = "Musique";
                 soundCaption.text = "Effets";
                 usernameCaption.text = "Utilisateur";
