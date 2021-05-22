@@ -10,12 +10,12 @@ public class GameController : MonoBehaviour
     public bool isPaused = false;
     public GameObject pausePanel;
 
-    public ButtonPressed buttonPressedLeft;
-    public ButtonPressed buttonPressedRight;
-    public ButtonPressed buttonPressedDown;
-    public ButtonPressed buttonPressedH;
-    public ButtonPressed buttonPressedJ;
-    public ButtonPressed buttonPressedSpace;
+    public GraphicButtonPressed buttonPressedLeft;
+    public GraphicButtonPressed buttonPressedRight;
+    public GraphicButtonPressed buttonPressedDown;
+    public GraphicButtonPressed buttonPressedH;
+    public GraphicButtonPressed buttonPressedJ;
+    public GraphicButtonPressed buttonPressedSpace;
 
     // Determines when the key was pressed last
     private float lastKeyDown;
@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour
     }
 
     // Get
-    public bool GetKeyPressed( ButtonPressed buttonPressed)
+    public bool GetKeyPressed( GraphicButtonPressed buttonPressed)
     {
         bool isKeyDown = buttonPressed.HasThisButtonBeenJustPushed();
         bool isPressed = buttonPressed.IsPressed();

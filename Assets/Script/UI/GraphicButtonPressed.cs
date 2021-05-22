@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 /// Class that simulates both pressing button and keeping button pressed
 /// </summary>
 
-public class ButtonPressed : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class GraphicButtonPressed : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
 
     // UI Button status
