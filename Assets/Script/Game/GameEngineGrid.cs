@@ -104,22 +104,22 @@ public class GameEngineGrid : MonoBehaviour
                 break;
             case 1:
                 ScoreAndLevelManager.score += ScoreAndLevelManager.level * 100;
-                audioSource = GameObject.Find("UI").GetComponent<DataManagement>().soundEffects[0];
+                audioSource = GameObject.Find("GameController").GetComponent<DataManagement>().soundEffects[0];
                 audioSource.Play();
                 break;
             case 2:
                 ScoreAndLevelManager.score += ScoreAndLevelManager.level * 300;
-                audioSource = GameObject.Find("UI").GetComponent<DataManagement>().soundEffects[1];
+                audioSource = GameObject.Find("GameController").GetComponent<DataManagement>().soundEffects[1];
                 audioSource.Play();
                 break;
             case 3:
                 ScoreAndLevelManager.score += ScoreAndLevelManager.level * 600;
-                audioSource = GameObject.Find("UI").GetComponent<DataManagement>().soundEffects[2];
+                audioSource = GameObject.Find("GameController").GetComponent<DataManagement>().soundEffects[2];
                 audioSource.Play();
                 break;
             case 4:
                 ScoreAndLevelManager.score += ScoreAndLevelManager.level * 1000;
-                audioSource = GameObject.Find("UI").GetComponent<DataManagement>().soundEffects[3];
+                audioSource = GameObject.Find("GameController").GetComponent<DataManagement>().soundEffects[3];
                 audioSource.Play();
                 break;
         }
@@ -128,7 +128,7 @@ public class GameEngineGrid : MonoBehaviour
         uint newLevel = 1 + ScoreAndLevelManager.linesDestroyed / 10;
         if (ScoreAndLevelManager.level != newLevel)
         {
-            audioSource = GameObject.Find("UI").GetComponent<DataManagement>().soundEffects[5];
+            audioSource = GameObject.Find("GameController").GetComponent<DataManagement>().soundEffects[5];
             audioSource.Play();
             ScoreAndLevelManager.level = newLevel;
         }

@@ -9,56 +9,39 @@ public class GraphicButtonPressed : MonoBehaviour, IPointerDownHandler, IPointer
 {
 
     // UI Button status
-    private bool isUIButtonPressed = false;
+    #region Fields
 
-    // Button status
-    private bool isPressed = false;
-    private bool wasPressed = false;
-    private bool hasThisButtonBeenJustPushed = false;
+    #region Internal
+    private bool _buttonPressed = false;
 
-    // Equivalent keyboard code
-    public KeyCode keyCode;
+    #endregion Internal
 
-    // Start is called before the first frame update
-    void Start()
+    #region Accessors
+
+    public bool ButtonPressed
     {
+        get { return _buttonPressed; }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    #endregion Accessors
 
-        // Set up the press status
-        isPressed = isUIButtonPressed || Input.GetKey(keyCode);
+    #endregion Fields
 
-        // The button has been just pressed if it was not pressed before but just now
-        hasThisButtonBeenJustPushed = (wasPressed == false && isPressed == true) ? true : false;
+    #region Methods
 
-        // Update internal state
-        wasPressed = isPressed;
-    }
+    #region CallBacks
 
-    // Method that returns if the button is pressed
-    public bool IsPressed()
-    {
-        return isPressed;
-    }
-
-    // Method that returns if the button has been just pushed
-    public bool HasThisButtonBeenJustPushed()
-    {
-        return hasThisButtonBeenJustPushed;
-    }
-
-    // Method from interface IPointerDownHandler called when you press down the button
     public void OnPointerDown(PointerEventData eventData)
     {
-        isUIButtonPressed = true;
+        _buttonPressed = true;
     }
 
-    // Method from interface IPointerUpHandler called when you releast the press on the button
     public void OnPointerUp(PointerEventData eventData)
     {
-        isUIButtonPressed = false;
+        _buttonPressed = false;
     }
+
+    #endregion CallBacks
+
+    #endregion Methods
 }

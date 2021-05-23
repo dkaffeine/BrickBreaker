@@ -17,10 +17,10 @@ public class Piece : MonoBehaviour
     private float fallTimeStartingLevel = 1.5f;
 
     // Reference to game controller to get control keys
-    private GameController gameController;
+    [SerializeField] private GameController gameController;
 
     // Reference to data management to get sound effects
-    public DataManagement dataManagement;
+    [SerializeField] private DataManagement dataManagement;
 
     // Reference to the spawner to get the game over panel
     private Spawner spawner;
@@ -30,7 +30,7 @@ public class Piece : MonoBehaviour
     {
         // Get references from different objets in scene
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
-        dataManagement = GameObject.Find("UI").GetComponent<DataManagement>();
+        dataManagement = GameObject.Find("GameController").GetComponent<DataManagement>();
         spawner = GameObject.Find("Spawner").GetComponent<Spawner>();
 
         // Set the last fall time on the grid
