@@ -227,7 +227,6 @@ public class Piece : MonoBehaviour
 
         // Destroy game object
         Destroy(gameObject);
-        this.enabled = false;
     }
 
     // Make the piece falling until it reaches the ground
