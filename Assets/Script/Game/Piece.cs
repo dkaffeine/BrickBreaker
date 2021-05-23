@@ -64,17 +64,11 @@ public class Piece : MonoBehaviour
     // Check if initial position is valid
     void CheckInitialGridPosition()
     {
-        if (IsValidGridPosition())
-        {
-            // If the position is valid, we insert it inside the grid
-            InsertChildrenInGrid();
-        }
-        else
+        if (IsValidGridPosition() == false)
         {
             // If you cannot place the piece on start, this is the game over
             GameOver();
         }
-
     }
 
     // Check if the position of the piece fits to a valid grid position
@@ -103,8 +97,8 @@ public class Piece : MonoBehaviour
         return true;
     }
 
-    // Initial insert 
-    void InsertChildrenInGrid()
+    // Insert piece in grid
+    void InsertPieceInGrid()
     {
 
         // Set each child inside the grid
@@ -113,24 +107,6 @@ public class Piece : MonoBehaviour
             Vector2 childPosition = GameEngineGrid.ClosestGridPosition(child.position);
             GameEngineGrid.grid[(int)childPosition.x, (int)childPosition.y] = child;
         }
-    }
-
-    // Update the grid
-    void UpdateGrid()
-    {
-        for (int y=0; y < GameEngineGrid.height; y++)
-        {
-            for (int x = 0; x < GameEngineGrid.width; x++)
-            {
-                // Destroy the element of the grid if the parent of the element placed is the current transform
-                if (GameEngineGrid.grid[x, y] != null && GameEngineGrid.grid[x, y].parent == transform)
-                {
-                    GameEngineGrid.grid[x, y] = null;
-                }
-            }
-        }
-
-        InsertChildrenInGrid();
     }
 
     // Try changing position
@@ -146,7 +122,6 @@ public class Piece : MonoBehaviour
             // If it's a valid grid position, update it and play sound
             AudioSource audioSource = dataManagement.soundEffects[4];
             audioSource.Play();
-            UpdateGrid();
             return true;
         }
         else
@@ -183,8 +158,6 @@ public class Piece : MonoBehaviour
             {
                 child.Rotate(-angle);
             }
-
-            UpdateGrid();
         }
         else
         {
@@ -201,6 +174,9 @@ public class Piece : MonoBehaviour
 
         if (TryChangePosition(new Vector3(0, -1, 0)) == false)
         {
+            // Insert piece in grid
+            InsertPieceInGrid();
+
             // Piece was falling, update sound
             AudioSource audioSource = dataManagement.soundEffects[6];
             audioSource.Play();
@@ -240,8 +216,10 @@ public class Piece : MonoBehaviour
             scoreFalling += ScoreAndLevelManager.level * 5;
         }
 
+        // Gives some extra score, depending on which height the piece was falling
         ScoreAndLevelManager.score += scoreFalling;
 
+        // Finally, make that piece falling
         PieceFalling();
     }
 

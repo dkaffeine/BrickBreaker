@@ -9,8 +9,8 @@ public class PausePanel : MonoBehaviour
 {
 
     // Handlers to game controller and data management
-    public GameController gameController;
-    public DataManagement dataManagement;
+    [SerializeField] private GameController gameController;
+    [SerializeField] private DataManagement dataManagement;
     
     // Start is called before the first frame update
     void Start()
