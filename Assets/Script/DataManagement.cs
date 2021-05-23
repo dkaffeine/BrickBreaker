@@ -12,7 +12,7 @@ public class DataManagement : MonoBehaviour
     public static DataToSave data;
     public static bool wereDataLoaded = false;
     // Do we need to reset data (used when we had to)?
-    [SerializeField] private bool hasToResetData;
+    [SerializeField] private readonly bool hasToResetData = false;
 
     // Background music
     public AudioSource backgroundMusic;
