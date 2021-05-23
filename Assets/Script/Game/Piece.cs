@@ -8,13 +8,11 @@ using UnityEngine;
 
 public class Piece : MonoBehaviour
 {
+    #region Fields
 
+    #region Serialized
 
-    // Time since last fall iteration
-    private float lastFallTime;
-
-    // Delta time for falling at level 1
-    private float fallTimeStartingLevel = 1.5f;
+    // Reference to the grid
 
     // Reference to game controller to get control keys
     [SerializeField] private GameController gameController;
@@ -22,17 +20,40 @@ public class Piece : MonoBehaviour
     // Reference to data management to get sound effects
     [SerializeField] private DataManagement dataManagement;
 
+    // Reference to the block collection transform object
+    [SerializeField] private Transform blockCollection;
+
+    #endregion Serialized
+
+    #region Internal
+
+    #endregion Internal
+
+    #endregion Fields
+
+
+    // Time since last fall iteration
+    private float lastFallTime;
+
+    // Delta time for falling at level 1
+    private readonly float fallTimeStartingLevel = 1.5f;
+
+
     // Reference to the spawner to get the game over panel
     private Spawner spawner;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         // Get references from different objets in scene
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
         dataManagement = GameObject.Find("GameController").GetComponent<DataManagement>();
         spawner = GameObject.Find("Spawner").GetComponent<Spawner>();
+        blockCollection = GameObject.Find("BlockCollection").transform;
+    }
 
+    // Start is called before the first frame update
+    void Start()
+    {
         // Set the last fall time on the grid
         lastFallTime = Time.time;
 
@@ -191,9 +212,22 @@ public class Piece : MonoBehaviour
             spawner.SpawnNextPiece();
 
             // Deactivate this piece
-            enabled = false;
+            DeactivatePiece();
+        }
+    }
+
+    // Deactivate the piece
+    internal void DeactivatePiece()
+    {
+        int childCount = transform.childCount;
+        for (int i = childCount-1; i >=0; i--)
+        {
+            transform.GetChild(i).SetParent(blockCollection);
         }
 
+        // Destroy game object
+        Destroy(gameObject);
+        this.enabled = false;
     }
 
     // Make the piece falling until it reaches the ground
