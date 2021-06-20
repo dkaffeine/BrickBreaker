@@ -15,14 +15,16 @@ public class OptionsMenu : MonoBehaviour
     public InputField userName;
     public Dropdown language;
 
+    static readonly float maxValue = 10.0f;
+
     // Options caption
     public OptionsCaptions optionsCaptions;
 
     // On start: we get internal state to reflect the UI
     void Start()
     {
-        musicSlider.value = DataManagement.data.musicVolume;
-        soundSlider.value = DataManagement.data.soundVolume;
+        musicSlider.value = maxValue * DataManagement.data.musicVolume;
+        soundSlider.value = maxValue * DataManagement.data.soundVolume;
         userName.text = DataManagement.data.userName;
         language.value = (int)DataManagement.data.languageIndex;
     }
@@ -30,13 +32,13 @@ public class OptionsMenu : MonoBehaviour
     // Change volume slider
     public void ChangeVolumeSlider()
     {
-        DataManagement.data.musicVolume = musicSlider.value;
+        DataManagement.data.musicVolume = musicSlider.value / maxValue;
     }
 
     // Change sound slider
     public void ChangeSoundSlider()
     {
-        DataManagement.data.soundVolume = soundSlider.value;
+        DataManagement.data.soundVolume = soundSlider.value / maxValue;
     }
 
     // Change username

@@ -762,7 +762,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e8fa4677220034d9a7b402d865e928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasToResetData: 0
   backgroundMusic: {fileID: 1051994224}
   hasSoundEffects: 0
   soundEffects: []
@@ -1474,7 +1473,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0
-  m_Text: TETRIS
+  m_Text: Brick Breaker
 --- !u!222 &2046958856
 CanvasRenderer:
   m_ObjectHideFlags: 0
